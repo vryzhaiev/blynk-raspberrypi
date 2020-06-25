@@ -1,12 +1,14 @@
 [tool.poetry]
 name = "blynk-raspberrypi"
-version = "0.1.0"
+version = "0.1.1"
 description = "Blynk client for Raspberry Pi"
 authors = ["Viktor Ryzhaiev <izod89@gmail.com>"]
+repository = "https://github.com/vryzhaiev/blynk-raspberrypi"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-blynklib = "^0.2.6"
+blynklib = { git = "https://github.com/vryzhaiev/lib-python.git" }
 gpiozero = "^1.5"
 
 [tool.poetry.dev-dependencies]
