@@ -1,6 +1,7 @@
 import logging
 from configparser import ConfigParser, NoSectionError, NoOptionError
 from os import system
+from os.path import abspath, dirname
 from time import sleep
 from datetime import datetime
 from blynklib import Blynk
@@ -39,7 +40,13 @@ num_cores = config.getint("system_metrics", "num_cores")
 
 # Initialize Blynk connection and timer
 blynk = Blynk(
-    auth_token, server="blynk-cloud.com", heartbeat=30, rcv_buffer=1024, log=_log.info
+    auth_token,
+    server="blynk-cloud.com",
+    port=443,
+    ssl_cert="{}/blynk-cloud.com.crt".format(dirname(abspath(__file__))),
+    heartbeat=30,
+    rcv_buffer=1024,
+    log=_log.info,
 )
 timer = Timer()
 
